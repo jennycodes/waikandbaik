@@ -6,11 +6,15 @@
 
 <script>
 import Login from './components/Login.vue'
+import Profile from './components/Profile.vue'
+import Toolbar from './components/Toolbar.vue'
 
 export default {
   name: 'app',
   components: {
-    Login
+    Login,
+    Profile,
+    Toolbar
   }
 }
 </script>
