@@ -18,6 +18,7 @@ export default {
     methods: {
         signIn() {
             const provider = new firebase.auth.GoogleAuthProvider()
+            var obj = this
             firebase.auth().signInWithPopup(provider).then(function(result) {
                 console.log(result.user.uid)
                 var user = {
@@ -27,9 +28,9 @@ export default {
                     photoUrl: result.user.photoURL
                 }
                 db.collection('users').doc(result.user.uid).set(user)
-                myData.user = user
+                obj.myData.user = user
             }).catch(function(error) {
-                console.log("error")
+                console.log(error)
             })
         }
     }
