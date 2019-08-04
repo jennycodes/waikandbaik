@@ -6,25 +6,31 @@
 
 <script>
 import firebase from 'firebase'
+import { db } from '../main'
+import { data } from '../data'
 export default {
     name: 'Login',
     data() {
-        return {};
+        return {
+            myData: data
+        }
     },
     methods: {
         signIn() {
             const provider = new firebase.auth.GoogleAuthProvider()
-            
             firebase.auth().signInWithPopup(provider).then(function(result) {
-                var token = result.credential.accessToken;
-                var user = result.user;
-                console.log(user.uid);
+                console.log(result.user.uid)
+                var user = {
+                    name: result.user.displayName,
+                    accountName: null,
+                    id: result.user.uid,
+                    photoUrl: result.user.photoURL
+                }
+                db.collection('users').doc(result.user.uid).set(user)
+                myData.user = user
             }).catch(function(error) {
-                var errorCode = error.code;
-                var errorMessage = error.message;
-                var email = error.email;
-                var credential = error.credential;
-            });       
+                console.log("error")
+            })
         }
     }
 }
