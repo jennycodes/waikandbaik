@@ -29,6 +29,7 @@ export default {
                 }
                 db.collection('users').doc(result.user.uid).set(user)
                 obj.myData.user = user
+                obj.myData.isLoggedOut = false
             }).catch(function(error) {
                 console.log(error)
             })
