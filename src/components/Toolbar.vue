@@ -33,7 +33,7 @@
       <v-toolbar-title class="mr-12 align-center">
         <span class="title">Waik and Baik</span>
       </v-toolbar-title>
-      <v-btn v-on:click="switchTheme()"><v-icon class="mx-4">mdi-mouse</v-icon></v-btn>
+      <v-btn v-on:click="switchTheme()">Switch theme</v-btn>
       <v-spacer></v-spacer>
       <v-layout align-center style="max-width: 650px">
         <v-text-field :append-icon-cb="() => {}" placeholder="Search..." single-line append-icon="mdi-mouse" hide-details></v-text-field>
@@ -55,8 +55,8 @@ import { db } from '../main'
             { text: 'Friends' }
         ],
         items2: [
-            { picture: 3, text: 'Apple' },
-            { picture: 1, text: 'Banana' }
+            { picture: 1, text: 'Apple' },
+            { picture: 3, text: 'Banana' }
         ],
     }),
     methods: {
