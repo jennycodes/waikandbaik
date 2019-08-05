@@ -3,6 +3,7 @@ import App from './App.vue'
 import firebase from 'firebase'
 import "@firebase/firestore"
 import { firestorePlugin } from 'vuefire'
+import vuetify from './plugins/vuetify';
 
 Vue.use(firestorePlugin)
 
@@ -19,7 +20,8 @@ const firebaseApp = firebase.initializeApp({
 })
 
 new Vue({
-  render: h => h(App),
+  vuetify,
+  render: h => h(App)
 }).$mount('#app')
 
 export { firebase }

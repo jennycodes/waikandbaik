@@ -2,4 +2,4 @@ var data = {
     user: null
 }
 
-export { data }
+export {data}

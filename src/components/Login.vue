@@ -1,6 +1,6 @@
 <template>
     <div>
-        <button v-on:click="signIn">Sign In</button>
+        <v-btn v-on:click="signIn">Sign In</v-btn>
     </div>
 </template>
 
@@ -24,11 +24,13 @@ export default {
                 var user = {
                     name: result.user.displayName,
                     accountName: null,
+                    usesDarkTheme: true,
                     id: result.user.uid,
                     photoUrl: result.user.photoURL
                 }
                 db.collection('users').doc(result.user.uid).set(user)
                 obj.myData.user = user
+                obj.$vuetify.theme.dark = user.usesDarkTheme
             }).catch(function(error) {
                 console.log(error)
             })

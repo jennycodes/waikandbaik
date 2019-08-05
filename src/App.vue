@@ -1,31 +1,24 @@
 <template>
-  <div id="app">
-    <Login msg="Welcome to Your Vue.js App"/>
-  </div>
+	<div id="app">
+		<v-app>
+			<Toolbar/>
+            <Body/>
+		</v-app>
+	</div>
 </template>
 
 <script>
-import Login from './components/Login.vue'
-import Profile from './components/Profile.vue'
+import Body from './components/Body.vue'
 import Toolbar from './components/Toolbar.vue'
 
 export default {
-  name: 'app',
-  components: {
-    Login,
-    Profile,
-    Toolbar
-  }
+	name: 'app',
+	components: {
+		Body,
+        Toolbar,
+    },
+    created () {
+      this.$vuetify.theme.dark = false
+    }
 }
 </script>
-
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
