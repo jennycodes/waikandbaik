@@ -2,14 +2,13 @@
     <div>
     <v-navigation-drawer v-model="drawer" app clipped>
       <v-list dense>
-        <v-list-item
-          class="mt-4">
-          <v-list-item-action>
+        <v-list-item class="mt-4" v-on:click="switchTheme()">
+          <v-list-item-action >
             <v-icon>mdi-mouse</v-icon>
           </v-list-item-action>
-          <v-list-item-title>Option 1</v-list-item-title>
+          <v-list-item-title>Switch Theme</v-list-item-title>
         </v-list-item>
-        <v-list-item>
+        <v-list-item v-on:click="switchTheme()">
           <v-list-item-action>
             <v-icon>mdi-mouse</v-icon>
           </v-list-item-action>
@@ -17,7 +16,7 @@
         </v-list-item>
         <v-subheader class="mt-4 grey--text text--darken-1">FRIENDS</v-subheader>
         <v-list>
-          <v-list-item v-for="item in items2" :key="item.text">
+          <v-list-item v-for="item in items2" :key="item.text" v-on:click="switchTheme()">
             <v-list-item-avatar>
               <img :src="`https://randomuser.me/api/portraits/men/${item.picture}.jpg`" alt="">
             </v-list-item-avatar>
@@ -33,7 +32,6 @@
       <v-toolbar-title class="mr-12 align-center">
         <span class="title">Waik and Baik</span>
       </v-toolbar-title>
-      <v-btn v-on:click="switchTheme()">Switch theme</v-btn>
       <v-spacer></v-spacer>
       <v-layout align-center style="max-width: 650px">
         <v-text-field :append-icon-cb="() => {}" placeholder="Search..." single-line append-icon="mdi-mouse" hide-details></v-text-field>
