@@ -3,7 +3,8 @@
       <v-container fill-height>
         <v-layout justify-center align-center>
           <v-flex shrink>
-              <Login/>
+              <Login v-if="myData.loggedOut"/>
+              <Profile v-if="!myData.loggedOut"/>
           </v-flex>
         </v-layout>
       </v-container>
@@ -12,29 +13,23 @@
 
 <script>
   import Login from '../components/Login.vue'
+  import { imgur } from '../imgur' 
+  import JQuery from 'jquery'
+  import { data } from '../data'
+  import Profile from '../components/Profile.vue'
+  let $ = JQuery
   export default {
     props: {
       source: String,
     },
     components: {
-        Login
+        Login,
+        Profile
     },
     data: () => ({
       drawer: null,
-      items: [
-        { icon: 'trending_up', text: 'Most Popular' },
-        { icon: 'subscriptions', text: 'Subscriptions' },
-        { icon: 'history', text: 'History' },
-        { icon: 'featured_play_list', text: 'Playlists' },
-        { icon: 'watch_later', text: 'Watch Later' },
-      ],
-      items2: [
-        { picture: 28, text: 'Joseph' },
-        { picture: 38, text: 'Apple' },
-        { picture: 48, text: 'Xbox Ahoy' },
-        { picture: 58, text: 'Nokia' },
-        { picture: 78, text: 'MKBHD' },
-      ],
+      imgurData: imgur,
+      myData: data
     })
   }
 </script>

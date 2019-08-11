@@ -1,5 +1,6 @@
 var data = {
-    user: null
+    user: null,
+    loggedOut: true
 }
 
 export {data}
